@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
-import { AppWrap } from "../../wrapper";
+import { AppWrap, MotionWrap } from "../../wrapper";
+import { client, urlFor } from "../../client";
 
 import "./Work.scss";
-import { client, urlFor } from "../../client";
 
 const Work = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -116,4 +116,8 @@ const Work = () => {
   );
 };
 
-export default AppWrap(Work, "work");
+export default AppWrap(
+  MotionWrap(Work, "app__works"),
+  "work",
+  "app__primarybg"
+);
